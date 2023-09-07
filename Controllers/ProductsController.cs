@@ -13,14 +13,12 @@ public class ProductsController : ControllerBase
     {
     }
 
-    // GET /api/products
     [HttpGet]
     public ActionResult<IEnumerable<Product>> GetProducts()
     {
         return ProductService.GetAll();
     }
 
-    // GET /api/products/{id}
     [HttpGet("{id}")]
     public ActionResult<Product> GetProduct(int id)
     {
@@ -32,7 +30,6 @@ public class ProductsController : ControllerBase
         return product;
     }
 
-    // POST /api/products
     [HttpPost]
     public IActionResult CreateProduct(Product product)
     {
@@ -41,7 +38,6 @@ public class ProductsController : ControllerBase
         return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
     }
 
-    // PUT /api/products/{id}
     [HttpPut("{id}")]
     public IActionResult UpdateProduct(Product product)
     {
@@ -56,7 +52,6 @@ public class ProductsController : ControllerBase
         return NoContent();
     }
 
-    // DELETE /api/products/{id}
     [HttpDelete("{id}")]
     public IActionResult DeleteProduct(int id)
     {
